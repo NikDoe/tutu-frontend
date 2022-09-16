@@ -29,7 +29,7 @@ export const trainSlice = createSlice({
 			state.seat = action.payload;
 		},
 		setBookedTicket: (state, action) => {
-			state.bookedTicket = { ...action.payload };
+			state.bookedTicket = { ...state.bookedTicket, ...action.payload };
 			console.log(state.bookedTicket);
 		},
 	},

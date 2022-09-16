@@ -1,12 +1,26 @@
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setBookedTicket } from '../store/slices/trainSlice';
 
 export default function Train({ depFrom, arrivalTo }) {
+	const dispatch = useDispatch();
+
+	const onClickChooseSeats = () => {
+		const way = {
+			from: depFrom,
+			to: arrivalTo,
+		};
+		dispatch(setBookedTicket(way));
+	};
+
 	return (
 		<div>
 			<div>
 				<span>{depFrom}-</span>
 				<span>{arrivalTo}</span>
-				<Link to={'/places'}>выбрать места</Link>
+				<Link onClick={onClickChooseSeats} to={'/places'}>
+					выбрать места
+				</Link>
 			</div>
 		</div>
 	);
