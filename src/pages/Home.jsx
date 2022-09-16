@@ -8,14 +8,17 @@ export default function Home() {
 	const { searchFrom, searchTo } = useSelector(state => state.trains);
 	const dispatch = useDispatch();
 
-	const updateSearch = useMemo(() => debounce((str, f) => dispatch(f(str)), 500), [dispatch]);
+	const updateSearch = useMemo(
+		() => debounce((str, f) => dispatch(f(str.trim())), 500),
+		[dispatch],
+	);
 
 	const onInputFrom = e => {
-		updateSearch(e.target.value.trim(), setSearchFrom);
+		updateSearch(e.target.value, setSearchFrom);
 	};
 
 	const onInputTo = e => {
-		updateSearch(e.target.value.trim(), setSearchTo);
+		updateSearch(e.target.value, setSearchTo);
 	};
 
 	useEffect(() => {

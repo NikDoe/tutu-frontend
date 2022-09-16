@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTrains } from '../store/slices/trainSlice';
 import Train from '../components/Train';
@@ -15,7 +15,7 @@ export default function Trains() {
 
 	useEffect(() => {
 		setIsLoading(true);
-		axios.get(`https://tutu-backend.herokuapp.com/api/train?${from}&${to}`).then(response => {
+		axios.get(`/train?${from}&${to}`).then(response => {
 			dispatch(setTrains(response.data));
 			setIsLoading(false);
 		});
