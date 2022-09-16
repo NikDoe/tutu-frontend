@@ -5,6 +5,8 @@ const initialState = {
 };
 
 export const trainSlice = createSlice({
+	seat: 0,
+	van: 0,
 	searchFrom: '',
 	searchTo: '',
 	name: 'trains',
@@ -20,8 +22,14 @@ export const trainSlice = createSlice({
 		setSearchTo: (state, action) => {
 			state.searchTo = action.payload;
 		},
+		setVan: (state, action) => {
+			state.van = action.payload;
+		},
+		setSeat: (state, action) => {
+			state.seat = action.payload;
+		},
 	},
 });
 
-export const { setTrains, setSearchFrom, setSearchTo } = trainSlice.actions;
+export const { setTrains, setSearchFrom, setSearchTo, setVan, setSeat } = trainSlice.actions;
 export default trainSlice.reducer;
