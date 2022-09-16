@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
 import debounce from 'lodash.debounce';
 import { setVan, setSeat } from '../store/slices/trainSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export default function Places() {
-	const { seat, van } = useSelector(state => state.trains);
 	const dispatch = useDispatch();
 
 	const updateValue = useMemo(
@@ -28,7 +27,7 @@ export default function Places() {
 			<input onChange={onInputVan} type="text" />
 			<p>выберите место</p>
 			<input onChange={onInputSeat} type="text" />
-			{seat && van ? <Link to="/data">перейти к вводу данных</Link> : ''}
+			<Link to="/data">перейти к вводу данных</Link>
 			<Link to={'/'}>назад к выбору</Link>
 		</div>
 	);

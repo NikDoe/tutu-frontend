@@ -1,20 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	trains: [],
-};
-
-export const trainSlice = createSlice({
+	bookedTicket: {},
 	seat: 0,
 	van: 0,
 	searchFrom: '',
 	searchTo: '',
+	trains: [],
+};
+
+export const trainSlice = createSlice({
 	name: 'trains',
 	initialState,
 	reducers: {
 		setTrains: (state, action) => {
 			state.trains = action.payload;
-			console.log(state.searchFrom, state.searchTo);
 		},
 		setSearchFrom: (state, action) => {
 			state.searchFrom = action.payload;
@@ -28,8 +28,13 @@ export const trainSlice = createSlice({
 		setSeat: (state, action) => {
 			state.seat = action.payload;
 		},
+		setBookedTicket: (state, action) => {
+			state.bookedTicket = { ...action.payload };
+			console.log(state.bookedTicket);
+		},
 	},
 });
 
-export const { setTrains, setSearchFrom, setSearchTo, setVan, setSeat } = trainSlice.actions;
+export const { setTrains, setSearchFrom, setSearchTo, setVan, setSeat, setBookedTicket } =
+	trainSlice.actions;
 export default trainSlice.reducer;
