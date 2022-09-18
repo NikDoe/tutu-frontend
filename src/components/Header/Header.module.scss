@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 460px) {
+    .logoText {
+      display: none;
+    }
+  }
+}
+
+.profile, .logo, .ticket {
+  width: 24px;
+  height: auto;
+}
+
+.logo, .profile, .ticket {
+  margin-right: 15px;
+}
+
+.dash {
+  margin: 0 5px;
+}
+
+.logoBlock, .cart, .ticketCount, .user {
+  display: flex;
+  align-items: center;
+}
+
+
+.logoText {
+  h1 {
+    margin-bottom: -10px;
+  }
+}
+
+.cart {
+  padding: 5px 10px;
+  background-color: #4B0082;
+  color: #ffffff;
+  border-radius: 20px;
+}

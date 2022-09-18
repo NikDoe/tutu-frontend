@@ -5,10 +5,14 @@ import PageNotFound from './pages/PageNotFound';
 import Places from './pages/Places';
 import PassengerData from './pages/PassengerData';
 import Success from './pages/Success';
+import Header from './components/Header';
+
+import styles from './scss/App.module.scss';
 
 function App() {
 	return (
-		<div className="App">
+		<div className={styles.root}>
+			<Header />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/trains" element={<Trains />} />
