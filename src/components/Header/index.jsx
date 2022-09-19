@@ -29,14 +29,14 @@ export default function Header() {
 			</div>
 			<div className={styles.user}>
 				<img className={styles.profile} src={userIcon} alt="user icon" />
-				<div className={styles.cart}>
+				<Link style={{ textDecoration: 'none' }} to="/booked" className={styles.cart}>
 					<p>{totalPrice.toFixed(2)} BYN</p>
 					<p className={styles.dash}>|</p>
 					<div className={styles.ticketCount}>
 						<img className={styles.ticket} src={cartIcon} alt="icon cart" />
 						<p>{totalBooked}</p>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</header>
 	);
