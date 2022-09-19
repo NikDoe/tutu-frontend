@@ -30,7 +30,9 @@ export default function PassengerData() {
 			<InputField type="text" label="номер паспорта" stateName="passportData" />
 			<InputField type="text" label="телефон(по желанию)" stateName="phone" />
 			{firstName && lastName && patronymic && passportData ? (
-				<div onClick={onClickBookTicket}>забронировать</div>
+				<Link to="/success" onClick={onClickBookTicket}>
+					забронировать
+				</Link>
 			) : (
 				''
 			)}
