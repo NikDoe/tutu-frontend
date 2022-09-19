@@ -2,13 +2,17 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setBookedTicket } from '../store/slices/trainSlice';
 
-export default function Train({ depFrom, arrivalTo }) {
+export default function Train({ depFrom, arrivalTo, depTime, arrivalTime, inTheWay, price }) {
 	const dispatch = useDispatch();
 
 	const onClickChooseSeats = () => {
 		const way = {
 			from: depFrom,
 			to: arrivalTo,
+			depTime,
+			arrivalTime,
+			inTheWay,
+			price,
 		};
 		dispatch(setBookedTicket(way));
 	};

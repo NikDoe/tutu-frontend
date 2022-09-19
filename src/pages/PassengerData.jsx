@@ -2,22 +2,22 @@ import { Link } from 'react-router-dom';
 import InputField from '../components/InputField';
 import { setBookedTicket } from '../store/slices/trainSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from '../axios';
 
 export default function PassengerData() {
-	const { firstName, lastName, patronymic, passportData, phone } = useSelector(
+	const { firstName, lastName, patronymic, passportData, phone, bookedTicket } = useSelector(
 		state => state.trains,
 	);
 	const dispatch = useDispatch();
 
-	const onClickBookTicket = () => {
+	const onClickBookTicket = async () => {
 		const passenger = {
-			firstName,
-			lastName,
-			patronymic,
+			fio: `${firstName} ${lastName} ${patronymic}`,
 			passportData,
-			phone: phone ? phone : '',
+			phone: phone ? phone : 'не указан',
 		};
 		dispatch(setBookedTicket(passenger));
+		await axios.post('/booking', { ...bookedTicket, ...passenger });
 	};
 	return (
 		<div>
@@ -28,9 +28,7 @@ export default function PassengerData() {
 			<InputField type="text" label="номер паспорта" stateName="passportData" />
 			<InputField type="text" label="телефон(по желанию)" stateName="phone" />
 			{firstName && lastName && patronymic && passportData ? (
-				<Link to="/success" onClick={onClickBookTicket}>
-					забронировать
-				</Link>
+				<div onClick={onClickBookTicket}>забронировать</div>
 			) : (
 				''
 			)}
