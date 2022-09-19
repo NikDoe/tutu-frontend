@@ -1,3 +1,14 @@
+import { useSelector } from 'react-redux';
+import BookedTicket from '../components/BookedTicket';
+
 export default function Booked() {
-	return <h1>booking page</h1>;
+	const { bookings } = useSelector(state => state.booking);
+
+	return (
+		<div>
+			{bookings.map((obj, index) => (
+				<BookedTicket key={index} {...obj} />
+			))}
+		</div>
+	);
 }

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setBookedTicket } from '../store/slices/trainSlice';
+import { setBookedTicket } from '../../store/slices/trainSlice';
+
+import styles from './Train.module.scss';
 
 export default function Train({ depFrom, arrivalTo, depTime, arrivalTime, inTheWay, price }) {
 	const dispatch = useDispatch();
@@ -18,14 +20,12 @@ export default function Train({ depFrom, arrivalTo, depTime, arrivalTime, inTheW
 	};
 
 	return (
-		<div>
-			<div>
-				<span>{depFrom}-</span>
-				<span>{arrivalTo}</span>
-				<Link onClick={onClickChooseSeats} to={'/places'}>
-					выбрать места
-				</Link>
-			</div>
+		<div className={styles.root}>
+			<span>{depFrom}-</span>
+			<span>{arrivalTo}</span>
+			<Link className={styles.choose} onClick={onClickChooseSeats} to={'/places'}>
+				выбрать места
+			</Link>
 		</div>
 	);
 }
