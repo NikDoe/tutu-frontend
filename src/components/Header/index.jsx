@@ -3,8 +3,19 @@ import cartIcon from '../../assets/img/ticket_header.svg';
 import logoIcon from '../../assets/img/train_logo.svg';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import axios from '../../axios';
+import { setBooking } from '../../store/slices/bookingSlice';
 
 export default function Header() {
+	const { totalPrice, totalBooked } = useSelector(state => state.booking);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		axios.get('/booking').then(res => dispatch(setBooking(res.data)));
+	}, [dispatch]);
+
 	return (
 		<header className={styles.root}>
 			<div className={styles.logoBlock}>
@@ -19,11 +30,11 @@ export default function Header() {
 			<div className={styles.user}>
 				<img className={styles.profile} src={userIcon} alt="user icon" />
 				<div className={styles.cart}>
-					<p>0 BYN</p>
+					<p>{totalPrice.toFixed(2)} BYN</p>
 					<p className={styles.dash}>|</p>
 					<div className={styles.ticketCount}>
 						<img className={styles.ticket} src={cartIcon} alt="icon cart" />
-						<p>0</p>
+						<p>{totalBooked}</p>
 					</div>
 				</div>
 			</div>

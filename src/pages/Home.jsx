@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import InputField from '../components/InputField';
 
 export default function Home() {
-	console.log('Home');
 	const { searchFrom, searchTo } = useSelector(state => state.trains);
 
 	return (

@@ -3,6 +3,7 @@ import InputField from '../components/InputField';
 import { setBookedTicket } from '../store/slices/trainSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from '../axios';
+import { setBooking } from '../store/slices/bookingSlice';
 
 export default function PassengerData() {
 	const { firstName, lastName, patronymic, passportData, phone, bookedTicket } = useSelector(
@@ -18,6 +19,7 @@ export default function PassengerData() {
 		};
 		dispatch(setBookedTicket(passenger));
 		await axios.post('/booking', { ...bookedTicket, ...passenger });
+		await axios.get('/booking').then(res => dispatch(setBooking(res.data)));
 	};
 	return (
 		<div>
