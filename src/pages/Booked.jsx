@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import BookedTicket from '../components/BookedTicket';
+import { Link } from 'react-router-dom';
 
 export default function Booked() {
 	const { bookings } = useSelector(state => state.booking);
@@ -9,6 +10,7 @@ export default function Booked() {
 			{bookings.map((obj, index) => (
 				<BookedTicket key={index} {...obj} />
 			))}
+			<Link to={'/'}>назад к выбору</Link>
 		</div>
 	);
 }
