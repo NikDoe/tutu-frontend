@@ -1,8 +1,17 @@
 .root {
   display: inline-flex;
   flex-direction: column;
+
+  @media (max-width: 860px) {
+    margin-bottom: 20px;
+    width: 100%;
+  }
 }
 
 .input {
-  flex-grow: 0;
+  padding: 5px 10px;
+  font-size: 20px;
+  margin-right: 20px;
+  border: 1px solid #4B0082;
+  border-radius: 5px;
 }

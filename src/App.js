@@ -6,11 +6,11 @@ import Places from './pages/Places';
 import PassengerData from './pages/PassengerData';
 import Success from './pages/Success';
 import Header from './components/Header';
-
-import styles from './scss/App.module.scss';
 import Booked from './pages/Booked';
 import TrainPage from './pages/TrainPage';
 import BookingPage from './pages/BookingPage';
+
+import styles from './scss/App.module.scss';
 
 function App() {
 	return (

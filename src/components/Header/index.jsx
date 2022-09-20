@@ -1,4 +1,3 @@
-import userIcon from '../../assets/img/user_icon.svg';
 import cartIcon from '../../assets/img/ticket_header.svg';
 import logoIcon from '../../assets/img/train_logo.svg';
 import styles from './Header.module.scss';
@@ -28,7 +27,7 @@ export default function Header() {
 				</div>
 			</div>
 			<div className={styles.user}>
-				<img className={styles.profile} src={userIcon} alt="user icon" />
+				{/*<img className={styles.profile} src={userIcon} alt="user icon" />*/}
 				<Link style={{ textDecoration: 'none' }} to="/booked" className={styles.cart}>
 					<p>{totalPrice.toFixed(2)} BYN</p>
 					<p className={styles.dash}>|</p>
