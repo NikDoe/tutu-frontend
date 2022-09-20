@@ -23,13 +23,13 @@ export default function TrainInfo({
 				куда : <b>{arrivalTo}</b>
 			</p>
 			<p>
-				отправние в : <b>{stringTime(depTime)}</b>
+				отправние в : <b>{depTime ? stringTime(depTime) : ''}</b>
 			</p>
 			<p>
-				прибытие в : <b>{stringTime(arrivalTime)}</b>
+				прибытие в : <b>{arrivalTime ? stringTime(arrivalTime) : ''}</b>
 			</p>
 			<p>
-				время в пути : <b>{stringTime(inTheWay)}</b>
+				время в пути : <b>{inTheWay ? stringTime(inTheWay) : ''}</b>
 			</p>
 			<p>
 				стоимость билета от : <b>{price} BYN</b>

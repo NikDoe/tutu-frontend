@@ -1,23 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import axios from '../axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTrains } from '../store/slices/trainSlice';
 import Train from '../components/Train';
 import { Link } from 'react-router-dom';
+import { setIsLoading } from '../store/slices/mainSlice';
 
 export default function Trains() {
 	const { trains, searchFrom, searchTo } = useSelector(state => state.trains);
+	const { isLoading } = useSelector(state => state.main);
 	const dispatch = useDispatch();
-	const [isLoading, setIsLoading] = useState(true);
 
 	const from = searchFrom ? `searchFrom=${searchFrom}` : '';
 	const to = searchTo ? `searchTo=${searchTo}` : '';
 
 	useEffect(() => {
-		setIsLoading(true);
+		dispatch(setIsLoading(true));
 		axios.get(`/train?${from}&${to}`).then(response => {
 			dispatch(setTrains(response.data));
-			setIsLoading(false);
+			dispatch(setIsLoading(false));
 		});
 	}, [dispatch, from, to]);
 	return (
