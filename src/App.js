@@ -9,6 +9,7 @@ import Header from './components/Header';
 
 import styles from './scss/App.module.scss';
 import Booked from './pages/Booked';
+import TrainPage from './pages/TrainPage';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/trains" element={<Trains />} />
+				<Route path="/trains/:id" element={<TrainPage />} />
 				<Route path="/places" element={<Places />} />
 				<Route path="/data" element={<PassengerData />} />
 				<Route path="/success" element={<Success />} />
