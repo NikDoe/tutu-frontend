@@ -10,7 +10,7 @@ export default function Booked() {
 			{bookings.map((obj, index) => (
 				<BookedTicket key={index} {...obj} />
 			))}
-			<Link to={'/'}>назад к выбору</Link>
+			<Link to={'/'}>на главную</Link>
 		</div>
 	);
 }

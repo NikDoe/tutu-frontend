@@ -10,6 +10,7 @@ import Header from './components/Header';
 import styles from './scss/App.module.scss';
 import Booked from './pages/Booked';
 import TrainPage from './pages/TrainPage';
+import BookingPage from './pages/BookingPage';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/data" element={<PassengerData />} />
 				<Route path="/success" element={<Success />} />
 				<Route path="/booked" element={<Booked />} />
+				<Route path="/booked/:id" element={<BookingPage />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</div>
