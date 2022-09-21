@@ -1,20 +1,55 @@
 .root {
+  position: relative;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  outline: 1px solid #4B0082;
+  color: black;
+  border: 1px solid #4B0082;
   margin-top: 20px;
-  padding: 0 0 0 10px;
+  padding: 0 10px 0 0;
   overflow: hidden;
   border-radius: 5px;
+  text-decoration: none;
+  @media (max-width: 1100px) {
+    flex-wrap: wrap;
+    .way, .dep, .arrival {
+      width: 30%;
+    }
+    .price {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 1000px) {
+    .way, .dep, .arrival, .price {
+      width: 50%;
+    }
+    .img {
+      position: absolute;
+      top: 0;
+    }
+  }
+  @media (max-width: 800px) {
+    .way, .dep, .arrival, .price {
+      width: 100%;
+    }
+    .dep, .arrival {
+      margin-top: 20px;
+    }
+  }
 }
 
-.choose {
-  text-align: center;
+.img {
+  width: 24px;
   background-color: #4B0082;
-  height: 100%;
-  color: #ffffff;
-  text-decoration: none;
-  margin-left: auto;
-  padding: 5px 10px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.way, .dep, .arrival, .price {
+  width: 25%;
+  text-align: center;
+
+  b {
+    color: #4B0082;
+  }
 }

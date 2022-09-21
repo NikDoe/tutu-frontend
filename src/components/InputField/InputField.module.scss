@@ -14,4 +14,7 @@
   margin-right: 20px;
   border: 1px solid #4B0082;
   border-radius: 5px;
+  @media (max-width: 460px) {
+    margin-right: 0;
+  }
 }
