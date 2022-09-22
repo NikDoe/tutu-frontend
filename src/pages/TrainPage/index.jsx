@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setBookedTicket } from '../store/slices/trainSlice';
+import { setBookedTicket } from '../../store/slices/trainSlice';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from '../axios';
-import TrainInfo from '../components/TrainInfo';
-import { setIsLoading } from '../store/slices/mainSlice';
+import axios from '../../axios';
+import TrainInfo from '../../components/TrainInfo';
+import { setIsLoading } from '../../store/slices/mainSlice';
+
+import styles from './TrainPage.module.scss';
 
 export default function TrainPage() {
 	const { isLoading } = useSelector(state => state.main);
@@ -33,12 +35,20 @@ export default function TrainPage() {
 	};
 
 	return (
-		<div>
-			{isLoading ? '<h1>загрузка</h1>' : <TrainInfo {...data} />}
-			<Link onClick={onClickChooseSeats} to={'/places'}>
-				выбрать места
+		<div className={styles.root}>
+			{isLoading ? (
+				<h1>загрузка</h1>
+			) : (
+				<>
+					<TrainInfo {...data} />
+					<Link className={styles.button} onClick={onClickChooseSeats} to={'/places'}>
+						выбрать места
+					</Link>
+				</>
+			)}
+			<Link className={styles.button} to={'/trains'}>
+				назад к поездам
 			</Link>
-			<Link to={'/trains'}>назад к поездам</Link>
 		</div>
 	);
 }

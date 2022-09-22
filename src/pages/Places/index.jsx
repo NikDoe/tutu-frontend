@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
-import { setBookedTicket } from '../store/slices/trainSlice';
+import { setBookedTicket } from '../../store/slices/trainSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import InputField from '../components/InputField';
+import InputField from '../../components/InputField';
+
+import styles from './places.module.scss';
 
 export default function Places() {
 	const { seat, van } = useSelector(state => state.trains);
@@ -16,14 +18,15 @@ export default function Places() {
 	};
 
 	return (
-		<div>
-			<h1>Seats page</h1>
+		<div className={styles.root}>
 			<InputField label="выберите вагон" type="text" stateName="van" />
 			<InputField label="выберите место" type="text" stateName="seat" />
-			<Link onClick={onClickInsertData} to="/data">
+			<Link className={styles.button} onClick={onClickInsertData} to="/data">
 				перейти к вводу данных
 			</Link>
-			<Link to={'/'}>назад к выбору</Link>
+			<Link className={styles.button} to={'/'}>
+				назад к выбору
+			</Link>
 		</div>
 	);
 }

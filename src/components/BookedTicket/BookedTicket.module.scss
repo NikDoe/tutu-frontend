@@ -4,5 +4,42 @@
   border: 1px solid #4B0082;
   margin-top: 20px;
   border-radius: 5px;
-  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    .info {
+      width: 50%;
+    }
+    .info:last-child {
+      margin-top: 20px;
+    }
+    .img {
+      position: absolute;
+      top:0;
+      left: 0;
+    }
+  }
+  @media (max-width: 560px) {
+    .info {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.img {
+  width: 24px;
+  background-color: #4B0082;
+  padding: 12px 10px;
+  margin-right: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
 }

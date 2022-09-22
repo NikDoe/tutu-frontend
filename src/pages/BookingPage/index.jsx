@@ -1,9 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from '../axios';
-import { stringTime } from '../utils';
+import axios from '../../axios';
+import { stringTime } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsLoading } from '../store/slices/mainSlice';
+import { setIsLoading } from '../../store/slices/mainSlice';
+
+import styles from './BookingPage.module.scss';
 
 export default function BookingPage() {
 	const { isLoading } = useSelector(state => state.main);
@@ -24,7 +26,7 @@ export default function BookingPage() {
 	}, [dispatch, id]);
 
 	return (
-		<div>
+		<div className={styles.root}>
 			{isLoading ? (
 				<h1>Загрузка...</h1>
 			) : (
@@ -59,7 +61,9 @@ export default function BookingPage() {
 					</p>
 				</div>
 			)}
-			<Link to={'/booked'}>вернуться назад</Link>
+			<Link className={styles.button} to={'/booked'}>
+				вернуться назад
+			</Link>
 		</div>
 	);
 }
