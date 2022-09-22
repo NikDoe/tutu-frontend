@@ -5,9 +5,10 @@ import { setTrains } from '../../store/slices/trainSlice';
 import Train from '../../components/Train';
 import { Link } from 'react-router-dom';
 import { setIsLoading } from '../../store/slices/mainSlice';
+import EmptyPage from '../EmptyPage';
 
 import styles from './trains.module.scss';
-import EmptyPage from '../EmptyPage';
+import appStyle from '../../scss/App.module.scss';
 
 export default function Trains() {
 	const { trains, searchFrom, searchTo } = useSelector(state => state.trains);
@@ -29,8 +30,11 @@ export default function Trains() {
 		return <EmptyPage text="по Вашему запросу ничего не найдено 😞" />;
 	}
 
+	const root = `${styles.root} ${appStyle.main}`;
+	const btn = `${styles.button} ${appStyle.button}`;
+
 	return (
-		<div className={styles.root}>
+		<div className={root}>
 			{isLoading ? (
 				<h1>ищем поезда...</h1>
 			) : (
@@ -41,7 +45,7 @@ export default function Trains() {
 					))}
 				</div>
 			)}
-			<Link className={styles.button} to={'/'}>
+			<Link className={btn} to={'/'}>
 				назад к выбору
 			</Link>
 		</div>

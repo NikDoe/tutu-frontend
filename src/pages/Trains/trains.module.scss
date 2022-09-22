@@ -1,19 +1,8 @@
 .root {
-  display: flex;
   flex-direction: column;
-  margin-top: 40px;
-  padding: 40px 20px;
-  background-color: white;
-  border-radius: 5px;
 }
 
 .button {
   margin-top: 20px;
-  display: block;
-  background-color: #4B0082;
-  text-decoration: none;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
   align-self: flex-start;
 }

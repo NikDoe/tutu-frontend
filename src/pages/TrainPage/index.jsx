@@ -7,6 +7,7 @@ import TrainInfo from '../../components/TrainInfo';
 import { setIsLoading } from '../../store/slices/mainSlice';
 
 import styles from './TrainPage.module.scss';
+import appStyle from '../../scss/App.module.scss';
 
 export default function TrainPage() {
 	const { isLoading } = useSelector(state => state.main);
@@ -34,19 +35,22 @@ export default function TrainPage() {
 		dispatch(setBookedTicket(way));
 	};
 
+	const root = `${styles.root} ${appStyle.main}`;
+	const btn = `${styles.button} ${appStyle.button}`;
+
 	return (
-		<div className={styles.root}>
+		<div className={root}>
 			{isLoading ? (
 				<h1>загрузка</h1>
 			) : (
 				<>
 					<TrainInfo {...data} />
-					<Link className={styles.button} onClick={onClickChooseSeats} to={'/places'}>
+					<Link className={btn} onClick={onClickChooseSeats} to={'/places'}>
 						выбрать места
 					</Link>
 				</>
 			)}
-			<Link className={styles.button} to={'/trains'}>
+			<Link className={btn} to={'/trains'}>
 				назад к поездам
 			</Link>
 		</div>

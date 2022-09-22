@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import InputField from '../../components/InputField';
 
 import styles from './places.module.scss';
+import appStyle from '../../scss/App.module.scss';
 
 export default function Places() {
 	const { seat, van } = useSelector(state => state.trains);
@@ -17,14 +18,17 @@ export default function Places() {
 		dispatch(setBookedTicket(place));
 	};
 
+	const root = `${styles.root} ${appStyle.main}`;
+	const btn = `${styles.button} ${appStyle.button}`;
+
 	return (
-		<div className={styles.root}>
+		<div className={root}>
 			<InputField label="выберите вагон" type="text" stateName="van" />
 			<InputField label="выберите место" type="text" stateName="seat" />
-			<Link className={styles.button} onClick={onClickInsertData} to="/data">
+			<Link className={btn} onClick={onClickInsertData} to="/data">
 				перейти к вводу данных
 			</Link>
-			<Link className={styles.button} to={'/'}>
+			<Link className={btn} to={'/'}>
 				назад к выбору
 			</Link>
 		</div>

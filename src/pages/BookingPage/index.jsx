@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setIsLoading } from '../../store/slices/mainSlice';
 
 import styles from './BookingPage.module.scss';
+import appStyle from '../../scss/App.module.scss';
 
 export default function BookingPage() {
 	const { isLoading } = useSelector(state => state.main);
@@ -17,6 +18,9 @@ export default function BookingPage() {
 	] = useState({});
 	const { id } = useParams();
 
+	const root = `${styles.root} ${appStyle.main}`;
+	const btn = `${styles.button} ${appStyle.button}`;
+
 	useEffect(() => {
 		dispatch(setIsLoading(true));
 		axios.get(`/booking/${id}`).then(res => {
@@ -26,7 +30,7 @@ export default function BookingPage() {
 	}, [dispatch, id]);
 
 	return (
-		<div className={styles.root}>
+		<div className={root}>
 			{isLoading ? (
 				<h1>Загрузка...</h1>
 			) : (
@@ -61,7 +65,7 @@ export default function BookingPage() {
 					</p>
 				</div>
 			)}
-			<Link className={styles.button} to={'/booked'}>
+			<Link className={btn} to={'/booked'}>
 				вернуться назад
 			</Link>
 		</div>

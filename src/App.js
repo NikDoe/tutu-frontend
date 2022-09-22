@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Trains from './pages/Trains';
-import PageNotFound from './pages/PageNotFound';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 import Places from './pages/Places';
 import PassengerData from './pages/PassengerData';
 import Success from './pages/Success';
